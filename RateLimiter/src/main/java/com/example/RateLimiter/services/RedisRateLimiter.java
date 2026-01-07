@@ -17,6 +17,7 @@ public class RedisRateLimiter {
         if (currentCount != null && currentCount == 1) {
             redisTemplate.expire(key, Duration.ofSeconds(timeWindowSeconds));
         }
+        System.out.println(key);
         return currentCount <= limit;
     }
 
